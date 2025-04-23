@@ -1,0 +1,155 @@
+body {
+    background-color: whitesmoke;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    border: 5px solid black;
+    margin: 25px;
+    padding: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: black;
+    color: white;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+
+#main-content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    font-family: 'Georgia', serif;
+    color: #1c1c1c;
+    margin-top: 30px;
+}
+
+img {
+    display: block;
+    max-width: 60%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+ol, ul {
+    margin: 0 auto 20px auto;
+    padding-left: 40px;
+    text-align: left;
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+p {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#top {
+    text-decoration: underline;
+}
+
+.emphasizedText {
+    font-style: italic;
+    color: gray;
+}
+
+footer {
+    background-color: #333; 
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer .back-to-top {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+footer .back-to-top:hover {
+    background-color: #777; 
+}
+
+footer .footer-nav {
+    margin-top: 20px;
+}
+
+footer .footer-nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+footer .footer-nav a:hover {
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.centered-list {
+    padding-left: 0;
+    list-style-position: outside;
+    margin: 0 auto;
+    display: table;
+    text-align: left;
+}
+
+nav {
+    background-color: lightgray;
+    padding: 10px;
+    overflow: hidden;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: #ccc;
+}
+
+.common {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#tableau-embed iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    border: none;
+    margin: 20px auto;
+}
+
+
+

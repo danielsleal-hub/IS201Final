@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Emoji Memory Flip Game</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #ffe6e6;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff4d4d;
+      margin-bottom: 10px;
+    }
+
+    .game-board {
+      display: grid;
+      grid-template-columns: repeat(4, 80px);
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card {
+      width: 80px;
+      height: 80px;
+      background-color: #fff;
+      border: 2px solid #ff9999;
+      border-radius: 10px;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+      user-select: none;
+    }
+
+    .card.flip {
+      background-color: #ffe0f0;
+      transform: rotateY(180deg);
+    }
+
+    .card.matched {
+      background-color: #b3ffcc;
+      cursor: default;
+    }
+
+    #status {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #cc0066;
+      font-size: 1.3rem;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #status.show {
+      opacity: 1;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e60000;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 40px;
+      font-size: 1rem;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Emoji Memory Flip</h1>
+  <p>Flip the cards and find all the matching emoji pairs!</p>
+  <div id="status"></div>
+  <div class="game-board" id="gameBoard"></div>
+  <button onclick="startGame()">Restart Game</button>
+  <br />
+  <a href="scratch.html" class="back-link">← Back to Scratch Page</a>
+
+  <script>
+    const emojis = ["🍕", "🐶", "🌈", "🚀", "🎵", "🍩", "🐱", "⚽️"];
+    let flippedCards = [];
+    let matchedCount = 0;
+
+    function startGame() {
+      const board = document.getElementById("gameBoard");
+      const status = document.getElementById("status");
+      board.innerHTML = '';
+      status.textContent = '';
+      status.classList.remove("show");
+      matchedCount = 0;
+      flippedCards = [];
+
+      let shuffled = [...emojis, ...emojis]
+        .sort(() => Math.random() - 0.5)
+        .map((emoji, index) => ({
+          id: index,
+          emoji,
+          matched: false
+        }));
+
+      shuffled.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.dataset.index = index;
+        card.dataset.emoji = item.emoji;
+        card.innerText = "";
+
+        card.addEventListener("click", () => flipCard(card, shuffled));
+        board.appendChild(card);
+      });
+    }
+
+    function flipCard(card, deck) {
+      const index = card.dataset.index;
+      const emoji = card.dataset.emoji;
+
+      if (card.classList.contains("flip") || card.classList.contains("matched") || flippedCards.length === 2) {
+        return;
+      }
+
+      card.classList.add("flip");
+      card.innerText = emoji;
+      flippedCards.push({ card, emoji, index });
+
+      if (flippedCards.length === 2) {
+        const [first, second] = flippedCards;
+        if (first.emoji === second.emoji && first.index !== second.index) {
+          first.card.classList.add("matched");
+          second.card.classList.add("matched");
+          matchedCount += 2;
+          flippedCards = [];
+
+          if (matchedCount === emojis.length * 2) {
+            const status = document.getElementById("status");
+            status.textContent = "🎉 You matched them all! Great memory!";
+            status.classList.add("show");
+          }
+        } else {
+          setTimeout(() => {
+            first.card.classList.remove("flip");
+            second.card.classList.remove("flip");
+            first.card.innerText = "";
+            second.card.innerText = "";
+            flippedCards = [];
+          }, 1000);
+        }
+      }
+    }
+
+    window.onload = startGame;
+  </script>
+</body>
+</html>
+
+
+

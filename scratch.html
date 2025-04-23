@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stargazing & Astronomy</title>
+  <link rel="stylesheet" href="css/scratch.css" />
+</head>
+<body>
+
+  <div id="header">
+    <h1>Welcome to the World of Stargazing</h1>
+    <p>Explore the universe, one star at a time.</p>
+    <a href="#video">Jump to Video</a>
+  </div>
+
+  <div id="main-content">
+    <h2>Why Stargazing?</h2>
+    <ol>
+      <li>Relaxation</li>
+      <li>Learning
+        <ul>
+          <li>Constellations</li>
+          <li>Planets</li>
+          <li>Deep-sky objects</li>
+          <li>Light pollution awareness</li>
+          <li>Equipment usage</li>
+        </ul>
+      </li>
+      <li>Inspiration</li>
+    </ol>
+
+    <h3>Photo from a Telescope:</h3>
+    <img src="./assets/img/Galchen-Telescope.webp" alt="Telescope View" />
+
+    <h3 id="video">Watch this Astronomy Video:</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/NuoD5nUW6_U" title="Shooting Stars Live View" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <h3>Interactive Tableau Chart:</h3>
+  <div class='tableauPlaceholder' id='vizContainer' style='position: relative'>
+    <noscript>
+      <a href='https://public.tableau.com/views/WheretoStargazeUSEdition/FinalDashboard'>
+        <img alt='Final Dashboard' src='https://public.tableau.com/static/images/XM/XM7DHDRQ3/1.png' style='border: none' />
+      </a>
+    </noscript>
+    <object class='tableauViz' style='width: 100%; height: 800px;'>
+      <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+      <param name='embed_code_version' value='3' />
+      <param name='path' value='views/WheretoStargazeUSEdition/FinalDashboard' />
+      <param name='toolbar' value='yes' />
+      <param name='static_image' value='https://public.tableau.com/static/images/XM/XM7DHDRQ3/1.png' />
+      <param name='animate_transition' value='yes' />
+      <param name='display_static_image' value='yes' />
+      <param name='display_spinner' value='yes' />
+      <param name='display_overlay' value='yes' />
+      <param name='display_count' value='yes' />
+      <param name='language' value='en-US' />
+    </object>
+  </div>
+  
+  <script type='text/javascript'>
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    document.getElementById('vizContainer').appendChild(scriptElement);
+  </script>
+  
+
+  <!-- Footer with Navigation Links and Back to Top Button -->
+  <footer>
+    <a href="#top" class="back-to-top">Back to Top</a> <!-- Go Back to Top Link -->
+    <div class="footer-nav">
+        <a href="index.html">Resume Page</a>
+        <a href="webapp.html">WebApp Page</a>
+    </div>
+  </footer>
+
+</body>
+</html>
